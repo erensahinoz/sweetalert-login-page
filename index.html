@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giriş Sayfası</title>
+    <meta charset="utf-8">
+    <!-- Publica Play fontu dahil ediliyor -->
+    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300,400&display=swap" rel="stylesheet">
+    <!-- SweetAlert stil dosyası dahil ediliyor -->
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: 'Public Sans', sans-serif;
+      }
+      .girisFormu {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        margin: 100px auto;
+        max-width: 400px;
+        padding: 40px;
+      }
+      .girisFormu h1 {
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .girisFormu form {
+        display: flex;
+        flex-direction: column;
+      }
+      .girisFormu input {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      .girisFormu button {
+        background-color: #00a0d2;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .girisFormu button:hover {
+        background-color: #0084b0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="girisFormu">
+      <h1>Giriş Sayfası</h1>
+      <form>
+        <input type="text" id="kullaniciAdi" placeholder="Kullanıcı Adı"><br>
+        <input type="password" id="sifre" placeholder="Şifre"><br>
+        <button type="button" onclick="girisYap()">Giriş Yap</button>
+      </form>
+    </div>
+    
+    <!-- SweetAlert scripti dahil ediliyor -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script>
+      // JavaScript kodları buraya gelecek
+      // Giriş butonuna tıklandığında çalışacak fonksiyon
+      function girisYap() {
+        // Kullanıcı adı ve şifreyi inputlardan al
+        var kullaniciAdi = document.getElementById("kullaniciAdi").value;
+        var sifre = document.getElementById("sifre").value;
+    
+        // Kullanıcı adı ve şifre alanlarının boş olup olmadığını kontrol et
+        if (kullaniciAdi == "" || sifre == "") {
+          // Eğer bir alan boş ise hata mesajı göster
+          swal("Hata", "Kullanıcı adı veya şifre boş bırakılamaz", "error");
+
+
+    } else {
+      // Alanlar dolu ise giriş bilgilerini konsola yaz
+      console.log("Kullanıcı Adı: " + kullaniciAdi);
+      console.log("Şifre: " + sifre);
+      
+      // SweetAlert ile hoş geldin mesajı göster
+      swal({
+        title: "Hoş Geldiniz",
+        text: "Merhaba " + kullaniciAdi + "! Giriş yaptınız.",
+        icon: "success",
+        button: "Tamam",
+      });
+    }
+  }
+</script>
+</body>
+</html>
